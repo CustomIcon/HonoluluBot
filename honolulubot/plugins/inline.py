@@ -3,8 +3,13 @@ from urllib.parse import unquote, urlparse
 import re
 from random import randint
 
-from pyrogram.types import (InlineQuery, InlineQueryResultArticle, InlineQueryResultPhoto, InputTextMessageContent,
-                            InlineKeyboardButton, InlineKeyboardMarkup)
+from pyrogram.types import (
+    InlineQueryResultArticle,
+    InlineQueryResultPhoto,
+    InputTextMessageContent,
+    InlineKeyboardButton,
+    InlineKeyboardMarkup
+)
 
 from honolulubot import honolulubot
 
@@ -19,7 +24,7 @@ DEFAULT_RESULTS = [
     InlineQueryResultArticle(
         title="About Honolulu",
         input_message_content=InputTextMessageContent(
-            f"**Konichiwa~**\nこんにちは、ホノルルです。ダンボロー、カナチャン、ヤンデレから集めたNSFW画像を提供しています。あなたはインライン機能を介して私を使用することができます:)",
+            "**Konichiwa~**\nこんにちは、ホノルルです。ダンボロー、カナチャン、ヤンデレから集めたNSFW画像を提供しています。あなたはインライン機能を介して私を使用することができます:)",
         ),
         reply_markup=InlineKeyboardMarkup(
             [
@@ -41,7 +46,7 @@ headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gec
 
 
 @honolulubot.on_inline_query()
-async def inline(client, query: InlineQuery):
+async def inline(client, query):
     results = []
     string = query.query.lower()
     if string == "":
@@ -68,7 +73,7 @@ async def inline(client, query: InlineQuery):
             while_counter = 1
             while while_counter <= 50:
                 while_counter += 1
-                async with session.get(f"https://yande.re/post.json?", params={"tags": tags, "random": "true", "page": counter}) as response:
+                async with session.get("https://yande.re/post.json?", params={"tags": tags, "random": "true", "page": counter}) as response:
                     data = await response.json()
                     counter += 1
                     count = 0
@@ -111,7 +116,7 @@ async def inline(client, query: InlineQuery):
             while_counter = 1
             while while_counter <= 50:
                 while_counter += 1
-                async with session.get(f"https://konachan.com/post.json?", params={"tags": tags, "random": "true", "page": counter}) as response:
+                async with session.get("https://konachan.com/post.json?", params={"tags": tags, "random": "true", "page": counter}) as response:
                     data = await response.json()
                     counter += 1
                     count = 0
@@ -153,7 +158,7 @@ async def inline(client, query: InlineQuery):
             while_counter = 1
             while while_counter <= 50:
                 while_counter += 1
-                async with session.get(f"https://danbooru.donmai.us/posts.json?",
+                async with session.get("https://danbooru.donmai.us/posts.json?",
                                         params={"tags": tags,
                                                 "random": "true",
                                                 "page": counter}

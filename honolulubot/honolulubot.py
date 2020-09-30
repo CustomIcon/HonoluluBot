@@ -10,6 +10,7 @@ BOT_SESSION = environ.get('BOT_SESSION', None)
 
 class honolulubot(Client):
     def __init__(self, name):
+        """Custom Pyrogram Client."""
         name = name.lower()
         config_file = f"{name}.ini"
 
