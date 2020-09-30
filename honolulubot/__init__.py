@@ -1,3 +1,4 @@
+"""Client Initial."""
 import logging
 from configparser import ConfigParser
 from datetime import datetime

@@ -1,4 +1,3 @@
-import honolulubot
 from honolulubot import honolulubot
 
 if __name__ == "__main__":
