@@ -1,5 +1,7 @@
 # HonoluluBot
- NSFW Telegram Inline bot to Scrap Search Queries from 3 Sources
+ NSFW Telegram Inline bot to Scrap Search Images from 3 Sources
+
+[![HitCount](http://hits.dwyl.com/pokurt/Honolulubot.svg)](http://hits.dwyl.com/pokurt/Honolulubot) [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/pokurt/Honolulubot) ![Repo Size](https://img.shields.io/github/repo-size/pokurt/Honolulubot) ![>~<](https://img.shields.io/badge/%3E~%3C-nyaaa~-purple)
 
 ### Installation:
 - Make a Bot using @BotFather and note down the token you recieve
@@ -10,6 +12,6 @@
 - It will ask you to put in the token you recieved earlier before, just put it in the shell and you are good to go
 
 ### One-Click Deploy on Heroku:
-This is one of the Easiest method to deploy YAML bot:
+This is one of the Easiest method to deploy Honolulu:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/pokurt/HonoluluBot.git)
