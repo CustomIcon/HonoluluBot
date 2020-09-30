@@ -1,0 +1,34 @@
+{
+    "name": "Honolulu Bot",
+    "description": "https://t.me/Honolulubot",
+    "keywords": [
+        "Telegram",
+        "Pyrogram",
+        "Yandere",
+        "Kanachan",
+        "Danbooru",
+        "NSFW"
+    ],
+    "success_url": "https://t.me/Honolulubot",
+    "repository": "https://github.com/pokurt/Honolulubot",
+    "env": {
+        "API_ID": {
+            "description": "Get this value from https://my.telegram.org",
+            "required": true
+        },
+        "API_HASH": {
+            "description": "Get this value from https://my.telegram.org",
+            "required": true
+        },
+        "BOT_SESSION": {
+            "description": "You can find a session Generator @ https://snippets.pyrogram.org :)",
+            "required": true
+        }
+    },
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    }
+}
