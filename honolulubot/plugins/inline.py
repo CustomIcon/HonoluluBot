@@ -27,9 +27,9 @@ DEFAULT_RESULTS = [
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("Community", url="https://t.me/YorkTownEagleUnion"),
             InlineKeyboardButton("Creator", url="https://github.com/pokurt")],
-            [InlineKeyboardButton('Search Yande.re', switch_inline_query_current_chat = 'yandere '),
-            InlineKeyboardButton('Search Konachan', switch_inline_query_current_chat = 'konachan '),
-            InlineKeyboardButton('Search Danbooru', switch_inline_query_current_chat = 'danbooru ')]]
+            [InlineKeyboardButton('Yande.re', switch_inline_query_current_chat = 'yandere '),
+            InlineKeyboardButton('Konachan', switch_inline_query_current_chat = 'konachan '),
+            InlineKeyboardButton('Danbooru', switch_inline_query_current_chat = 'danbooru ')]]
         ),
         description="自分自身について",
         thumb_url=IMG,
