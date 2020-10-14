@@ -77,13 +77,13 @@ async def inline(client, query):
                         break
                     if "file_url" in item:
                         picture_url = item["file_url"]
-                        picture_name = re.sub('[<>:"/|?*]', " ", unquote(urlparse(picture_url).path.split("/")[-1]))
-                        text = f'**{picture_name}**\n'
-                        text += f'**Tags Matched:** {tags}'
-                        buttons = [[InlineKeyboardButton('Source', url=picture_url)]]
+                        text = f'**Post ID**: `{item["id"]}`\n'
+                        text += f'**Author:** `{item["author"]}`\n'
+                        text += f'**Score**: `{item["score"]}`'
+                        buttons = [[InlineKeyboardButton('Source', url=f'https://yande.re/post/show/{item["id"]}')]]
                         results.append(InlineQueryResultPhoto(
                             photo_url=picture_url,
-                            title=f"Result:{picture_name}",
+                            title=f'Result:{item["id"]}',
                             caption=text,
                             description=f"Tags Matched: #{tags}",
                             reply_markup=InlineKeyboardMarkup(buttons)))
@@ -118,13 +118,13 @@ async def inline(client, query):
                         break
                     if "file_url" in item:
                         picture_url = item["file_url"]
-                        picture_name = re.sub('[<>:"/|?*]', " ", unquote(urlparse(picture_url).path.split("/")[-1]))
-                        text = f'**{picture_name}**\n'
-                        text += f'**Tags Matched:** {tags}'
-                    buttons = [[InlineKeyboardButton('Source', url=picture_url)]]
+                        text = f'**Post ID**: `{item["id"]}`\n'
+                        text += f'**Author:** `{item["author"]}`\n'
+                        text += f'**Score**: `{item["score"]}`'
+                        buttons = [[InlineKeyboardButton('Source', url=f'https://yande.re/post/show/{item["id"]}')]]
                     results.append(InlineQueryResultPhoto(
                         photo_url=picture_url,
-                        title=f"Result:{picture_name}",
+                        title=f'Result:{item["id"]}',
                         caption=text,
                         description=f"Tags Matched: #{tags}",
                         reply_markup=InlineKeyboardMarkup(buttons)))
@@ -158,13 +158,16 @@ async def inline(client, query):
                         break
                     if "file_url" in item:
                         picture_url = item["file_url"]
-                        picture_name = re.sub('[<>:"/|?*]', " ", unquote(urlparse(picture_url).path.split("/")[-1]))
-                        text = f'**{picture_name}**\n'
-                        text += f'**Tags Matched:** {tags}'
-                        buttons = [[InlineKeyboardButton('Source', url=picture_url)]]
+                        text = f'**Post ID**: `{item["id"]}`\n'
+                        text += f'**Author:** `{item["tag_string_artist"]}`\n'
+                        text += f'**Score**: `{item["score"]}`'
+                        buttons = [
+                            [InlineKeyboardButton('Source', url=f'https://danbooru.donmai.us/posts/{item["id"]}'),
+                            InlineKeyboardButton('Artist', url=f'https://danbooru.donmai.us/artists/{item["uploader_id"]}')]
+                            ]
                         results.append(InlineQueryResultPhoto(
                             photo_url=picture_url,
-                            title=f"Result:{picture_name}",
+                            title=f'Result:{item["id"]}',
                             caption=text,
                             description=f"Tags Matched: #{tags}",
                             reply_markup=InlineKeyboardMarkup(buttons)))
