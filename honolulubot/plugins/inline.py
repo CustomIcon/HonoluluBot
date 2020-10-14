@@ -82,7 +82,7 @@ async def inline(client, query):
                         text += f'**Score**: `{item["score"]}`'
                         buttons = [[
                             InlineKeyboardButton('Source', url=f'https://yande.re/post/show/{item["id"]}'),
-                            InlineKeyboardButton('Pixiv', url=item['source'])
+                            InlineKeyboardButton('Pixiv', url=item["source"])
                             ]]
                         results.append(InlineQueryResultPhoto(
                             photo_url=picture_url,
@@ -126,7 +126,7 @@ async def inline(client, query):
                         text += f'**Score**: `{item["score"]}`'
                         buttons = [[
                             InlineKeyboardButton('Source', url=f'https://yande.re/post/show/{item["id"]}'),
-                            InlineKeyboardButton('Pixiv', url=item['source'])
+                            InlineKeyboardButton('Pixiv', url=item["source"])
                             ]]
                     results.append(InlineQueryResultPhoto(
                         photo_url=picture_url,
