@@ -121,7 +121,7 @@ async def inline(client, query):
                         text = f'**Post ID**: `{item["id"]}`\n'
                         text += f'**Author:** `{item["author"]}`\n'
                         text += f'**Score**: `{item["score"]}`'
-                        buttons = [[InlineKeyboardButton('Source', url=f'https://yande.re/post/show/{item["id"]}')]]
+                        buttons = [[InlineKeyboardButton('Source', url=f'https://konachan.com/post/show/{item["id"]}')]]
                     results.append(InlineQueryResultPhoto(
                         photo_url=picture_url,
                         title=f'Result:{item["id"]}',
