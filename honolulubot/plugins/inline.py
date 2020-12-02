@@ -1,4 +1,6 @@
 from urllib.parse import unquote, urlparse
+from urllib.request import urlopen
+from bs4 import BeautifulSoup
 import re
 from random import randint
 
@@ -176,4 +178,40 @@ async def inline(client, query):
                                             is_gallery=True,
                                             cache_time=CACHE_TIME
                                             )
+    elif string.split()[0] == "zerochan":
+        if len(string.split()) == 1:
+            await client.answer_inline_query(query.id,
+                                            results=results,
+                                            switch_pm_text="Search for an image on ZeroChan",
+                                            switch_pm_parameter="start"
+                                        )
+            return
+        urls = []
+        errors = 0
+        tags = string.split(None, 1)[1].replace("#", '')
+        number = randint(1, 10)
+        url = 'https://www.zerochan.net/'+ tags + "?p=" + str(number)
+        page = urlopen(url).read()
+        soup = BeautifulSoup(page, "html.parser")
+        ul = soup.find("ul", {"id": "thumbs2"})
+        li_list = ul.findChildren("li")
+        for li in li_list:
+            try:
+                a = li.p.findChildren("a")[-1]
+                urls.append(str(a['href']))
+            except Exception:
+                errors += 1
+        for item in urls:
+            picture_url = item
+            results.append(InlineQueryResultPhoto(
+                photo_url=picture_url
+            ))
+        await client.answer_inline_query(
+            query.id,
+            results=results,
+            is_gallery=True,
+            cache_time=CACHE_TIME
+        )
+
+        
     return
