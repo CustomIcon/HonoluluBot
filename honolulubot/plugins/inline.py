@@ -31,7 +31,8 @@ DEFAULT_RESULTS = [
             InlineKeyboardButton("Creator", url="https://github.com/pokurt")],
             [InlineKeyboardButton('Yande.re', switch_inline_query_current_chat = 'yandere '),
             InlineKeyboardButton('Konachan', switch_inline_query_current_chat = 'konachan '),
-            InlineKeyboardButton('Danbooru', switch_inline_query_current_chat = 'danbooru ')]]
+            InlineKeyboardButton('Danbooru', switch_inline_query_current_chat = 'danbooru ')],
+            [InlineKeyboardButton('Zerochan', switch_inline_query_current_chat = 'zerochan ')]]
         ),
         description="自分自身について",
         thumb_url=IMG,
